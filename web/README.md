@@ -8,3 +8,12 @@
 하위 과제
 1. Flex Box 또는 Grid CSS 를 이용해서 영화를 나열합니다.
 2. 영화에 마우스로 호버 하면 영화 이미지의 사이지가 크게 될 수 있게 합니다.
+
+
+환경 설정
+- node.js v18.20.5 (LTS)  
+[다운로드 링크](https://nodejs.org/en/download/package-manager)
+- react-router-dom
+```angular2html
+npm install react-router-dom@6.26.1
+```
