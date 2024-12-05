@@ -30,6 +30,9 @@ const MainPage = () => {
         setMovie(movieDetail);
         // console.log(imgUrl + movie?.backdrop_path);
     }
+    const truncate = (str, n) => {
+        return str?.length > n ? str.slice(0, n - 1) + "..." : str;
+    }
 
     return (
         <>
@@ -44,7 +47,7 @@ const MainPage = () => {
                         </button>
                     </div>
                     <h3 className={`${styles.bannerDescription} ${styles.textDeco}`}>
-                        {movie?.overview}
+                        {truncate(movie?.overview, 100)}
                     </h3>
                 </div>
             </div>
