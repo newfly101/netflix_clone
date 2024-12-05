@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 250px;
+    background-color: #111111;
+    box-sizing: border-box;
+    border-top: 1px solid #666;
+}
+.footerContainer {
+    display: block;
+    max-width: var(--max-width);
+    min-width: 400px;
+    height: 80%;
+}
+.footerContainer > h3 {
+    font-size: 1.3rem;
+    color: #666;
+    margin: 1.3rem 0;
+}
+.footerGridBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+}
+.footerGridBox > a {
+    color: #666;
+    text-decoration: underline;
+}
+.footerGridBox > a:visited {
+    color: #666;
+}
+
+/*@media (max-width: 800px) {*/
+/*    */
+/*}*/
