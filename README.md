@@ -10,4 +10,28 @@
 
 > npm install react-router-dom@6.26.1
 </pre>
+    <li>react-router-dom 이용 방법</li>
+<pre>
+// index.js
+root.render(
+    &lt;BrowserRouter&gt;
+        &lt;App /&gt;
+    &lt;/BrowserRouter&gt;
+);
+
+// app.js
+const App = () => {
+return (
+  &lt;div className="App"&gt;
+    &lt;Routes&gt;
+      &lt;Route path="/" component={&lt;LayOut /&gt;}&gt;
+          &lt;Route path="/" component={&lt;MainPage /&gt;} /&gt;
+          &lt;Route path="/" component={&lt;DetailPage /&gt;} /&gt;
+          &lt;Route path="search" component={&lt;SearchPage /&gt;} /&gt;
+      &lt;/Route&gt;
+    &lt;/Routes&gt;
+  &lt;/div&gt;
+  );
+}
+</pre>
 </pre>
