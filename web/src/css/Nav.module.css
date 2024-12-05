@@ -11,7 +11,7 @@
     align-items: center;
     width: 100%;
     height: var(--Header-height);
-    background-color: #505050;
+    /*background-color: #505050;*/
     padding: 0 40px 0 10px;
     box-sizing: border-box;
     /* ANIMATION */
