@@ -17,25 +17,31 @@ const MainPage = () => {
 
     const fetchData = async () => {
         const request = await instance.get(requests.fetchNowPlaying);
-        console.log(`${tag} total result => `,request.data.results);
+        // console.log(`${tag} total result => `,request.data.results);
         const randNum = Math.floor(Math.random() * request.data.results.length);
-        console.log(`${tag} get random 1 => `,request.data.results[randNum]);
+        // console.log(`${tag} get random 1 => `,request.data.results[randNum]);
         const movieId = request.data.results[randNum].id;
-        console.log(`movieId: ${movieId}`);
+        // console.log(`movieId: ${movieId}`);
 
         const {data: movieDetail} = await instance.get(requests.fetchMovieDetail(movieId), {
             params: {append_to_response: "videos"}
         });
         console.log(movieDetail);
         setMovie(movieDetail);
-        console.log(`${imgUrl}${movie?.backdrop_path}`);
+        // console.log(imgUrl + movie?.backdrop_path);
     }
 
     return (
         <div className={movie ? styles.container : styles.bannerContainer}
-             style={{backgroundImage: `url(${imgUrl}${movie?.backdrop_path})`}}>
+             style={{backgroundImage: movie ? `url(${imgUrl}${movie?.backdrop_path})` : "none"}}>
             <h1 className={styles.bannerTitle}>{movie?.title || movie?.name || movie?.original_title}</h1>
-            <div></div>
+            <div className={styles.bannerButtons}>
+                <button className={`${styles.bannerButton} ${styles.play}`}>▶ Play</button>
+                <button className={`${styles.bannerButton} ${styles.info}`}>More Information</button>
+            </div>
+            <h3 className={styles.bannerDescription}>
+                {movie?.overview}
+            </h3>
         </div>
     );
 };
