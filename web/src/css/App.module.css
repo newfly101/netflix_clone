@@ -1,6 +1,5 @@
 :root {
     --Header-height: 80px;
-    /*--Header-button-height: calc(var(--Header-height) * 0.4);*/
     --Header-button-height: 32px;
     --max-width: 1920px;
 }
@@ -18,5 +17,4 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*margin-top: var(--Header-height);*/
 }
