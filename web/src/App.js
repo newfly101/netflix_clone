@@ -22,7 +22,7 @@ const LayOut = () => {
 
 const App = () => {
   return (
-  <div className="App">
+  <div className={styles.app}>
     <Routes>
       <Route path="/" element={<LayOut />}>
           <Route index element={<MainPage />} />
