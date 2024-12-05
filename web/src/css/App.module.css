@@ -1,0 +1,7 @@
+:root {
+    --Header-height: 30px;
+}
+
+.container {
+    margin-top: var(--Header-height);
+}

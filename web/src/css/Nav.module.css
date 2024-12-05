@@ -1,0 +1,11 @@
+.container {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    height: var(--Header-height);
+    background-color: lightpink;
+}
+.netflixLogo {
+    height: var(--Header-height);
+}
