@@ -8,7 +8,14 @@ const Nav = () => {
             <Link to="/" target="_self">
                 <img className={styles.netflixLogo} src="/Netflix_Logo.png" alt="Netflix logo"/>
             </Link>
-
+            <div className={styles.buttonContainer}>
+                <div className={styles.translateLang}>
+                    <img src="/assets/lang.svg" alt="lang"/>
+                    <span>한국어</span>
+                    <em>▼</em>
+                </div>
+                <button className={styles.userLogin}>로그인</button>
+            </div>
 
         </div>
     );

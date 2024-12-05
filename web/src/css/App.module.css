@@ -1,5 +1,6 @@
 :root {
-    --Header-height: 30px;
+    --Header-height: 80px;
+    --Header-button-height: calc(var(--Header-height) * 0.4);
 }
 
 .container {

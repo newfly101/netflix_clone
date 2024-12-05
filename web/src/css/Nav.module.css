@@ -1,11 +1,68 @@
+:root {
+    --Header-font-size: 1rem;
+
+}
 .container {
     position: fixed;
     top: 0;
     z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     height: var(--Header-height);
-    background-color: lightpink;
+    background-color: #505050;
+    padding: 0 40px 0 10px;
+    box-sizing: border-box;
+    /* ANIMATION */
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+}
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 .netflixLogo {
     height: var(--Header-height);
+}
+.translateLang {
+    height: var(--Header-button-height);
+    font-size: var(--Header-font-size);
+    padding: 0 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #444444;
+    border: 1px solid white;
+    color: white;
+    border-radius: var(--Header-font-size);
+    cursor: default;
+}
+.translateLang > img {
+    height: 16px;
+    margin-right: 5px;
+}
+.translateLang > span {
+    height: 16px;
+    margin-right: 20px;
+}
+.translateLang > em {
+    height: 10px;
+    font-size: 9px;
+}
+.userLogin {
+    height: var(--Header-button-height);
+    font-size: var(--Header-font-size);
+    padding: 0 1.2rem;
+    border-radius: var(--Header-font-size);
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+.userLogin:hover {
+    background-color: #cdcdcd;
+    transition-timing-function: ease-in;
+    transition: all 0.2s;
 }
