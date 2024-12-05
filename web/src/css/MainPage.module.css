@@ -1,6 +1,17 @@
 .container {
-
+    height: 500px;
+    background-color: rgba(211, 211, 211, 0.6);
+    background-size: cover;
+    background-position: top center;
+}
+.bannerContainer {
+    height: 500px;
+    background-size: cover;
+    background-position: top center;
 }
 .banner {
+
+}
+.bannerTitle {
 
 }

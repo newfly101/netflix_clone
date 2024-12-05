@@ -4,6 +4,8 @@ import requests from "../api/request";
 import instance from "../api/axios";
 
 const tag = '[Fetch]';
+const imgUrl = 'https://image.tmdb.org/t/p/original/';
+
 
 const MainPage = () => {
     const [movie, setMovie] = React.useState([]);
@@ -26,11 +28,14 @@ const MainPage = () => {
         });
         console.log(movieDetail);
         setMovie(movieDetail);
+        console.log(`${imgUrl}${movie?.backdrop_path}`);
     }
 
     return (
-        <div className={styles.container}>
-            MainPage
+        <div className={movie ? styles.container : styles.bannerContainer}
+             style={{backgroundImage: `url(${imgUrl}${movie?.backdrop_path})`}}>
+            <h1 className={styles.bannerTitle}>{movie?.title || movie?.name || movie?.original_title}</h1>
+            <div></div>
         </div>
     );
 };
