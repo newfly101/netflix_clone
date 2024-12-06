@@ -10,7 +10,7 @@
 }
 .container {
     height: var(--banner-image-size);
-    background-color: rgba(211, 211, 211, 0.6);
+    background-color: #111111;
     /* 동적으로 요청했을 때 이미지가 없으면 기본 삽입할 정적 이미지 추가*/
     /*background-image: url("");*/
     background-size: cover;
@@ -113,41 +113,55 @@
     z-index: 1;
 }
 .itemContainer {
+    max-width: var(--max-width);
     display: flex;
-    align-content: center;
+    justify-content: center;
+    /*align-items: center;*/
+    /*align-content: center;*/
     flex-direction: column;
     background-color: #111111;
-    padding: 2rem 0 2rem 4rem;
+    padding: 2rem 2rem 2rem 4rem;
+    width: 100%;
 }
 .itemTitle {
     color: white;
     font-size: 3.5rem;
     margin: 3rem 0;
+    padding-left: 3rem;
 }
 .items {
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-left: 3rem;
     gap: 10px;
-    /*justify-content: center;*/
-    /*align-items: center;*/
+    position: relative;
+    max-width: var(--max-width);
+    overflow: hidden;
+    overflow-x: auto;
+    height: calc(400px * 16 / 12 * 1.15);
 }
 .items > img {
     max-width: 400px;
     border-radius: 10px;
     object-fit: cover;
     cursor: pointer;
-
+    position: relative;
+    z-index: 1;
+    overflow: clip;
+    transform-origin: center center; /* 확대 기준점을 이미지 중앙으로 설정 */
+    transition: transform 0.3s ease;
 }
 .items > img:hover {
     border-radius: 10px;
     object-fit: cover;
     cursor: pointer;
     transition: transform 0.3s ease; /* 부드러운 확대 효과 */
-    transform-origin: center;
+    transform-origin: center center;
     transform: scale(1.1);
     z-index: 4;
     border: 1px solid #444444;
+    position: relative;
 }
 .largeItem {
     width: 100%;
@@ -159,7 +173,6 @@
     height: auto;
     /*aspect-ratio: 16 / 9;*/
 }
-/*.item:hover, .largeItem:hover {*/
-/*    transform: scale(1.2);*/
-/*    z-index: 4;*/
-/*}*/
+.largeItem:hover, .item:hover {
+    position: absolute;
+}

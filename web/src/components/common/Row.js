@@ -5,7 +5,7 @@ import styles from "../main/Main.module.css";
 const imgUrl = process.env.REACT_APP_GET_MOVIE_POSTER_UTL;
 
 const Row = (props) => {
-    const {title, id, url, isLarge} = props;
+    const {title, url, isLarge} = props;
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -14,19 +14,23 @@ const Row = (props) => {
 
     const fetchData = async () => {
         const {data: {results : request }} = await instance.get(url);
+        // const {data: request} = await instance.get(url);
+        console.log("request",request);
         setPosts(request.map(item => item?.poster_path));
     }
 
     return (
-        <div className={styles.itemContainer}>
-            <h1 className={styles.itemTitle}>${title}</h1>
-            <div className={styles.items}>
-            {posts.map((item) => (
-                isLarge ?
-                <img className={styles.largeItem} key={id} src={`${imgUrl}${item}`} alt="d"/>
-                :
-                <img className={styles.item} key={id} src={`${imgUrl}${item}`} alt="d"/>
-            ))}
+        <div className={styles.container}>
+            <div className={styles.itemContainer}>
+                <h1 className={styles.itemTitle}>{title}</h1>
+                <div className={styles.items}>
+                {posts.map((item, i) => (
+                    isLarge ?
+                    <img className={styles.largeItem} key={i} src={`${imgUrl}${item}`} alt="d"/>
+                    :
+                    <img className={styles.item} key={i} src={`${imgUrl}${item}`} alt="d"/>
+                ))}
+                </div>
             </div>
         </div>
     );
