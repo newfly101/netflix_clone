@@ -42,6 +42,7 @@ const Main = () => {
 
     return (
         <>
+            {/* todo 구조 변경 : isClicked 되면 <Banner 안에 .banner랑 VideoFrame이랑 ? 로 걸어서 변경 하기*/}
             { isClicked ? (
                 (movie?.videos.results.length > 0)
                     ?  <VideoFrame movie={movie} />
