@@ -3,6 +3,7 @@ import requests from "../../api/request";
 import instance from "../../api/axios";
 import VideoFrame from "./banner/VideoFrame";
 import Banner from "./banner/Banner";
+import Row from "../common/Row";
 
 const tag = '[Fetch]';
 const imgUrl = 'https://image.tmdb.org/t/p/original/';
@@ -47,6 +48,11 @@ const Main = () => {
                     : onClickVideo(false)
             ) : <Banner movie={movie} imgUrl={imgUrl} onClickVideo={onClickVideo} />
             }
+            <Row
+                title={movie?.title}
+                id={movie?.id}
+                url={requests.fetchActionMovies}
+                isLarge={true}/>
         </>
     )
 
