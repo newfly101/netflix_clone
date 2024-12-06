@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react';
-import requests from "../api/request";
-import instance from "../api/axios";
-import VideoFrame from "./MainComponent/VideoFrame";
-import Banner from "./MainComponent/Banner";
+import requests from "../../api/request";
+import instance from "../../api/axios";
+import VideoFrame from "./banner/VideoFrame";
+import Banner from "./banner/Banner";
 
 const tag = '[Fetch]';
 const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
 
-const MainPage = () => {
+const Main = () => {
     const [movie, setMovie] = React.useState([]);
     const [isClicked, setIsClicked] = React.useState(false);
 
@@ -52,4 +52,4 @@ const MainPage = () => {
 
 };
 
-export default MainPage;
+export default Main;

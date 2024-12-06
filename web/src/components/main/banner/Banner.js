@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../../css/MainPage.module.css";
+import styles from "../Main.module.css";
 
 const Banner = ({movie, onClickVideo, imgUrl}) => {
     const truncate = (str, n) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../../css/MainPage.module.css";
+import styles from "../Main.module.css";
 
 const tag = '[VideoFrame]';
 const VideoFrame = ({movie}) => {
