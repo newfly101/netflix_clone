@@ -17,7 +17,9 @@ const Row = (props) => {
         // const {data: request} = await instance.get(url);
         // todo 여기서 state 값 [{},{}] 로 변경 후 detail page만들 것
         console.log("request",request);
-        setPosts(request.map(item => item?.poster_path));
+        isLarge ? setPosts(request.map(item => item?.poster_path))
+                : setPosts(request.map(item => item.backdrop_path || item.poster_path))
+        // setPosts(request.map(item => item?.poster_path));
     }
 
     return (
