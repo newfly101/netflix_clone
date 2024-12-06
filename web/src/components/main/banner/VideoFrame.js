@@ -4,13 +4,14 @@ import YoutubePlayer from "../../common/YoutubePlayer";
 
 const tag = '[VideoFrame]';
 const VideoFrame = ({movie}) => {
-    console.log(tag, movie);
+    // console.log(tag, movie);
+    const maxWidth = getComputedStyle(document.documentElement).getPropertyValue('--max-width').trim();
     return (
         <div className={styles.container}>
             <YoutubePlayer
             videoId={movie?.videos?.results[0].key}
-            width={"100%"}
-            height={"600px"}
+            width={maxWidth}
+            height={"800px"}
             />
 
             {/*<iframe*/}

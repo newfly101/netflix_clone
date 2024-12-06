@@ -19,6 +19,7 @@ const YoutubePlayer = (props) => {
             showinfo: 0,        // 동영상 정보 표시 여부 (0: 숨김)
             modestbranding: 1,  // YouTube 로고 최소화 (1: 최소화)
             origin: window.location.origin, // 현재 origin 설정
+            enablejsapi: 1, // JavaScript API 활성화
         }
     }), []);
 
