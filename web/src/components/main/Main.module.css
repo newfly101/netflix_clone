@@ -9,10 +9,9 @@
             -2px -2px 0 rgba(109, 109, 109, 0.2);
 }
 .container {
-    height: var(--banner-image-size);
+    /*height: var(--banner-image-size);*/
+    height: auto;
     background-color: #111111;
-    /* 동적으로 요청했을 때 이미지가 없으면 기본 삽입할 정적 이미지 추가*/
-    /*background-image: url("");*/
     background-size: cover;
     background-position: top center;
     width: 100%;
@@ -116,8 +115,6 @@
     max-width: var(--max-width);
     display: flex;
     justify-content: center;
-    /*align-items: center;*/
-    /*align-content: center;*/
     flex-direction: column;
     background-color: #111111;
     padding: 2rem 2rem 2rem 4rem;
@@ -126,22 +123,26 @@
 .itemTitle {
     color: white;
     font-size: 3.5rem;
-    margin: 3rem 0;
-    padding-left: 3rem;
+    margin: 1rem 0;
+    padding-left: 2rem;
 }
-.items {
+.itemContainer > div {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 3rem;
+    padding: 2rem;
     gap: 10px;
     position: relative;
     max-width: var(--max-width);
-    overflow: hidden;
     overflow-x: auto;
+}
+.largeItems {
     height: calc(400px * 16 / 12 * 1.15);
 }
-.items > img {
+.smallItems {
+    height: calc(400px * 9 / 16 * 1.15);
+}
+.itemContainer > div > img {
     max-width: 400px;
     border-radius: 10px;
     object-fit: cover;
@@ -149,14 +150,14 @@
     position: relative;
     z-index: 1;
     overflow: clip;
-    transform-origin: center center; /* 확대 기준점을 이미지 중앙으로 설정 */
+    transform-origin: center center;
     transition: transform 0.3s ease;
 }
-.items > img:hover {
+.itemContainer > div > img:hover {
     border-radius: 10px;
     object-fit: cover;
     cursor: pointer;
-    transition: transform 0.3s ease; /* 부드러운 확대 효과 */
+    transition: transform 0.3s ease;
     transform-origin: center center;
     transform: scale(1.1);
     z-index: 4;
@@ -164,15 +165,11 @@
     position: relative;
 }
 .largeItem {
-    width: 100%;
-    height: auto;
     aspect-ratio: 12 / 16;
 }
-.item {
-    width: 100%;
-    height: auto;
-    /*aspect-ratio: 16 / 9;*/
+.smallItem {
+    aspect-ratio: 16 / 9;
 }
-.largeItem:hover, .item:hover {
+.largeItem:hover, .smallItem:hover {
     position: absolute;
 }

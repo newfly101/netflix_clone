@@ -23,14 +23,19 @@ const Row = (props) => {
         <div className={styles.container}>
             <div className={styles.itemContainer}>
                 <h1 className={styles.itemTitle}>{title}</h1>
-                <div className={styles.items}>
-                {posts.map((item, i) => (
-                    isLarge ?
-                    <img className={styles.largeItem} key={i} src={`${imgUrl}${item}`} alt="d"/>
-                    :
-                    <img className={styles.item} key={i} src={`${imgUrl}${item}`} alt="d"/>
-                ))}
-                </div>
+                {isLarge ? (
+                    <div className={styles.largeItems}>
+                        {posts.map((item, i) => (
+                            <img className={styles.largeItem} key={i} src={`${imgUrl}${item}`} alt="d"/>
+                        ))}
+                    </div>
+                ) : (
+                    <div className={styles.smallItems}>
+                        {posts.map((item, i) => (
+                            <img className={styles.smallItem} key={i} src={`${imgUrl}${item}`} alt="d"/>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );

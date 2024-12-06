@@ -49,10 +49,13 @@ const Main = () => {
             ) : <Banner movie={movie} imgUrl={imgUrl} onClickVideo={onClickVideo} />
             }
             <Row
-                title={movie?.title}
-                id={movie?.id}
+                title={"Action Movies"}
                 url={requests.fetchActionMovies}
                 isLarge={true}/>
+            <Row
+                title={"Comedy Movies"}
+                url={requests.fetchComedyMovies}
+                isLarge={false}/>
         </>
     )
 
