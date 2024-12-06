@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import YouTubeLoad from "../../utils/YouTubeLoad";
 
 const YoutubePlayer = (props) => {
-    const {videoId} = props;
+    const {videoId, width, height} = props;
 
     const videoRef = useRef(null);
 
@@ -34,7 +34,9 @@ const YoutubePlayer = (props) => {
                     playlist: defaultOptions.loop ? videoId : undefined,
                     mute: defaultOptions.mute,
                     ...defaultOptions.playerVars,
-                }
+                },
+                width: width,
+                height: height,
             });
         };
         return () => {
