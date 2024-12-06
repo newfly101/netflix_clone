@@ -21,7 +21,12 @@ const Row = (props) => {
         <div className={styles.itemContainer}>
             <h1 className={styles.itemTitle}>${title}</h1>
             <div className={styles.items}>
-                {posts.map((item) => <img src={`${imgUrl}${item}`} alt="d"/> )}
+            {posts.map((item) => (
+                isLarge ?
+                <img className={styles.largeItem} key={id} src={`${imgUrl}${item}`} alt="d"/>
+                :
+                <img className={styles.item} key={id} src={`${imgUrl}${item}`} alt="d"/>
+            ))}
             </div>
         </div>
     );
