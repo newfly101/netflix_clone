@@ -15,6 +15,7 @@ const Row = (props) => {
     const fetchData = async () => {
         const {data: {results : request }} = await instance.get(url);
         // const {data: request} = await instance.get(url);
+        // todo 여기서 state 값 [{},{}] 로 변경 후 detail page만들 것
         console.log("request",request);
         setPosts(request.map(item => item?.poster_path));
     }
