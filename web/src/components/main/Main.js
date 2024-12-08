@@ -4,6 +4,7 @@ import instance from "../../api/axios";
 import VideoFrame from "./banner/VideoFrame";
 import Banner from "./banner/Banner";
 import Row from "../common/Row";
+import MovieModal from "../common/MovieModal";
 
 const tag = '[Fetch]';
 const imgUrl = 'https://image.tmdb.org/t/p/original/';
@@ -12,6 +13,8 @@ const imgUrl = 'https://image.tmdb.org/t/p/original/';
 const Main = () => {
     const [movie, setMovie] = React.useState([]);
     const [isClicked, setIsClicked] = React.useState(false);
+    const [isModalOpen, setModalOpen] = React.useState(false);
+    const [selectedMovie, setSelectedMovie] = React.useState([]);
 
     // 화면 렌더링 될 때 정보 가져오기
     useEffect(() => {
@@ -39,9 +42,20 @@ const Main = () => {
         }
         setIsClicked(boolean);
     }
+    const handleModalOpen = (open, item) => {
+        console.log("Modal Open:", open, "Selected Movie:", item);
+        setModalOpen(open);
+        setSelectedMovie(item);
+    }
 
     return (
         <>
+            {isModalOpen && (
+                <MovieModal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+                    <p>{selectedMovie?.title}</p>
+                    <p>{selectedMovie?.overview}</p>
+                </MovieModal>
+            )}
             {/* todo 구조 변경 : isClicked 되면 <Banner 안에 .banner랑 VideoFrame이랑 ? 로 걸어서 변경 하기*/}
             { isClicked ? (
                 (movie?.videos.results.length > 0)
@@ -53,27 +67,37 @@ const Main = () => {
                 title={"Action Movies"}
                 id={"AM"}
                 url={requests.fetchActionMovies}
-                isLarge={true}/>
+                isLarge={true}
+                isOpen={handleModalOpen}
+            />
             <Row
                 title={"Comedy Movies"}
                 id={"CM"}
                 url={requests.fetchComedyMovies}
-                isLarge={false}/>
+                isLarge={false}
+                isOpen={handleModalOpen}
+            />
             <Row
                 title={"Horror Movies"}
                 id={"HM"}
                 url={requests.fetchHorrorMovies}
-                isLarge={false}/>
+                isLarge={false}
+                isOpen={handleModalOpen}
+            />
             <Row
                 title={"Romance Movies"}
                 id={"RM"}
                 url={requests.fetchRomanceMovies}
-                isLarge={false}/>
+                isLarge={false}
+                isOpen={handleModalOpen}
+            />
             <Row
                 title={"Documentaries"}
                 id={"DM"}
                 url={requests.fetchDocumentaries}
-                isLarge={false}/>
+                isLarge={false}
+                isOpen={handleModalOpen}
+            />
         </>
     )
 

@@ -7,6 +7,7 @@ const imgUrl = process.env.REACT_APP_GET_MOVIE_POSTER_UTL;
 const Row = (props) => {
     const {title, url, isLarge, id} = props;
     const [posts, setPosts] = useState([]);
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
         fetchData();
@@ -16,7 +17,8 @@ const Row = (props) => {
         const {data: {results: request}} = await instance.get(url);
         // const {data: request} = await instance.get(url);
         // todo 여기서 state 값 [{},{}] 로 변경 후 detail page만들 것
-        console.log("request", request);
+        // console.log(`${id} request`, request);
+        setItems(request);
         isLarge ? setPosts(request.map(item => item?.poster_path))
             : setPosts(request.map(item => item.backdrop_path || item.poster_path))
     }
@@ -38,7 +40,9 @@ const Row = (props) => {
                     <div className={styles.arrowLeft} onClick={() => scroll("left")}><span>{"<"}</span></div>
                     <article id={id} className={isLarge ? styles.largeItems : styles.smallItems}>
                     {posts.map((item, i) => (
-                        <img className={isLarge ? styles.largeItem : styles.smallItem} key={i} src={`${imgUrl}${item}`} alt="img"/>
+                        <img className={isLarge ? styles.largeItem : styles.smallItem} src={`${imgUrl}${item}`} alt={item.name}
+                             key={`${id}-img-${i}`}
+                             onClick={() => props.isOpen(true, items[i])} />
                     ))}
                     </article>
                     <div className={`${styles.arrowRight}`} onClick={() => scroll("right")}><span>{">"}</span></div>
