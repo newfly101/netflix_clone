@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import instance from "../../api/axios";
 import styles from "./Row.module.css";
 
@@ -19,27 +19,29 @@ const Row = (props) => {
         console.log("request", request);
         isLarge ? setPosts(request.map(item => item?.poster_path))
             : setPosts(request.map(item => item.backdrop_path || item.poster_path))
-        // setPosts(request.map(item => item?.poster_path));
     }
+    const scroll = (direction) => {
+        const container = document.querySelector(`#${id}`);
+        const scrollAmount = 394; // 한 번에 이동할 픽셀 수
+        if (direction === "left") {
+            container.scrollLeft -= scrollAmount;
+        } else {
+            container.scrollLeft += scrollAmount;
+        }
+    };
 
     return (
         <div className={styles.container}>
             <section className={styles.itemContainer}>
                 <h1 className={styles.itemTitle}>{title}</h1>
                 <div style={{ position: "relative" }}>
-                    <div className={styles.arrowLeft}>
-                        <span>{"<"}</span>
-                    </div>
-                    <article className={isLarge ? styles.largeItems : styles.smallItems}>
+                    <div className={styles.arrowLeft} onClick={() => scroll("left")}><span>{"<"}</span></div>
+                    <article id={id} className={isLarge ? styles.largeItems : styles.smallItems}>
                     {posts.map((item, i) => (
-                            <img className={isLarge ? styles.largeItem : styles.smallItem} key={i}
-                                 src={`${imgUrl}${item}`}
-                                 alt="img"/>
-                        ))}
+                        <img className={isLarge ? styles.largeItem : styles.smallItem} key={i} src={`${imgUrl}${item}`} alt="img"/>
+                    ))}
                     </article>
-                    <div className={`${styles.arrowRight}`}>
-                        <span>{">"}</span>
-                    </div>
+                    <div className={`${styles.arrowRight}`} onClick={() => scroll("right")}><span>{">"}</span></div>
                 </div>
             </section>
         </div>
