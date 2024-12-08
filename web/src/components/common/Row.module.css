@@ -1,0 +1,95 @@
+.container {
+    background-color: #111111;
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+.itemContainer {
+    max-width: var(--max-width);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #111111;
+    padding: 2rem 2rem 2rem 4rem;
+    width: 100%;
+}
+article {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: hidden;
+    gap: 10px;
+    padding: 2rem;
+    min-height: calc(400px * 9 / 16 * 1.15);
+    max-width: var(--max-width);
+}
+.itemTitle {
+    color: white;
+    font-size: 3.5rem;
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+article > img {
+    width: 400px;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article > img:hover {
+    transform: scale(1.1);
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+.largeItems {
+    height: calc(400px * 16 / 12 * 1.15);
+}
+.smallItems {
+    height: calc(400px * 9 / 16 * 1.15);
+}
+.largeItem {
+    aspect-ratio: 12 / 16;
+}
+.smallItem {
+    aspect-ratio: 16 / 9;
+}
+.arrow {
+
+}
+.arrowLeft:hover, .arrowRight:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    /*transform: translateY(-50%);*/
+    transition: all 0.3s ease;
+}
+.arrowLeft {
+    position: absolute;
+    top: 43%;
+    left: 5%;
+    font-size: 1rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 100%;
+    cursor: pointer;
+    z-index: 10;
+}
+.arrowRight {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    font-size: 1rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 100%;
+    cursor: pointer;
+    z-index: 10;
+}
