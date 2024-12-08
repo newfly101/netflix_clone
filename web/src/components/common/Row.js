@@ -5,7 +5,7 @@ import styles from "../main/Main.module.css";
 const imgUrl = process.env.REACT_APP_GET_MOVIE_POSTER_UTL;
 
 const Row = (props) => {
-    const {title, url, isLarge} = props;
+    const {title, url, isLarge, id} = props;
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {

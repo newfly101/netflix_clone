@@ -51,11 +51,28 @@ const Main = () => {
             }
             <Row
                 title={"Action Movies"}
+                id={"AM"}
                 url={requests.fetchActionMovies}
                 isLarge={true}/>
             <Row
                 title={"Comedy Movies"}
+                id={"CM"}
                 url={requests.fetchComedyMovies}
+                isLarge={false}/>
+            <Row
+                title={"Horror Movies"}
+                id={"HM"}
+                url={requests.fetchHorrorMovies}
+                isLarge={false}/>
+            <Row
+                title={"Romance Movies"}
+                id={"RM"}
+                url={requests.fetchRomanceMovies}
+                isLarge={false}/>
+            <Row
+                title={"Documentaries"}
+                id={"DM"}
+                url={requests.fetchDocumentaries}
                 isLarge={false}/>
         </>
     )
