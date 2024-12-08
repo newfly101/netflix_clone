@@ -8,6 +8,7 @@ const Row = (props) => {
     const {title, url, isLarge, id} = props;
     const [posts, setPosts] = useState([]);
     const [items, setItems] = useState([]);
+    const containerRef = useRef(null);
 
     useEffect(() => {
         fetchData();
@@ -23,13 +24,14 @@ const Row = (props) => {
             : setPosts(request.map(item => item.backdrop_path || item.poster_path))
     }
     const scroll = (direction) => {
-        const container = document.querySelector(`#${id}`);
+        const container = containerRef.current;
         const scrollAmount = 394; // 한 번에 이동할 픽셀 수
         if (direction === "left") {
             container.scrollLeft -= scrollAmount;
         } else {
             container.scrollLeft += scrollAmount;
         }
+        console.log(`Scroll Position: ${container.scrollLeft}`); // 디버깅
     };
 
     return (
@@ -38,7 +40,9 @@ const Row = (props) => {
                 <h1 className={styles.itemTitle}>{title}</h1>
                 <div style={{ position: "relative" }}>
                     <div className={styles.arrowLeft} onClick={() => scroll("left")}><span>{"<"}</span></div>
-                    <article id={id} className={isLarge ? styles.largeItems : styles.smallItems}>
+                    <article id={id} className={isLarge ? styles.largeItems : styles.smallItems}
+                            ref={containerRef}
+                    >
                     {posts.map((item, i) => (
                         <img className={isLarge ? styles.largeItem : styles.smallItem} src={`${imgUrl}${item}`} alt={item.name}
                              key={`${id}-img-${i}`}

@@ -20,9 +20,15 @@ const MovieModal = (props) => {
     const handleClose = () => {
         onClose();
     }
+    const handleBackgroundClick = (e) => {
+        // 모달 외부를 클릭했는지 확인
+        if (e.target === dialogRef.current) {
+            onClose();
+        }
+    };
 
     return ReactDOM.createPortal(
-        <dialog ref={dialogRef} className={styles.modal} onClose={handleClose}>
+        <dialog ref={dialogRef} className={styles.modal} onClose={handleClose} onClick={handleBackgroundClick}>
             <div className={styles.content}>
                 <img src={`${imgUrl}${items?.backdrop_path}`} alt="Detail_img"/>
                 <p>{items?.release_date}</p>
