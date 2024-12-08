@@ -23,16 +23,16 @@ const Main = () => {
 
     const fetchData = async () => {
         const request = await instance.get(requests.fetchNowPlaying);
-        console.log(`${tag} total result => `,request.data.results);
+        // console.log(`${tag} total result => `,request.data.results);
         const randNum = Math.floor(Math.random() * request.data.results.length);
-        console.log(`${tag} get random 1 => `,request.data.results[randNum]);
+        // console.log(`${tag} get random 1 => `,request.data.results[randNum]);
         const movieId = request.data.results[randNum].id;
         // console.log(`movieId: ${movieId}`);
 
         const {data: movieDetail} = await instance.get(requests.fetchMovieDetail(movieId), {
             params: {append_to_response: "videos"}
         });
-        console.log(movieDetail);
+        // console.log(movieDetail);
         setMovie(movieDetail);
         // console.log(imgUrl + movie?.backdrop_path);
     }
@@ -51,10 +51,7 @@ const Main = () => {
     return (
         <>
             {isModalOpen && (
-                <MovieModal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-                    <p>{selectedMovie?.title}</p>
-                    <p>{selectedMovie?.overview}</p>
-                </MovieModal>
+                <MovieModal items={selectedMovie} isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
             )}
             {/* todo 구조 변경 : isClicked 되면 <Banner 안에 .banner랑 VideoFrame이랑 ? 로 걸어서 변경 하기*/}
             { isClicked ? (
