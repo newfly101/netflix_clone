@@ -1,0 +1,6 @@
+export const actionTypes = {
+    GET_MOVIE_LIST: 'GET_MOVIE_LIST',
+    GET_MOVIE: 'GET_MOVIE',
+    GET_MOVIE_PLAYER: 'GET_MOVIE_PLAYER',
+    GET_MOVIE_MODAL_OPEN: 'SET_MODAL_OPEN',
+};
