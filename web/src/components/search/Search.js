@@ -3,8 +3,8 @@ import styles from "./Search.module.css";
 import {useLocation} from "react-router-dom";
 import instance from "../../api/axios";
 import requests from "../../api/request";
+import {IMAGE_UTL} from "../../config/config";
 
-const imgUrl = process.env.REACT_APP_GET_MOVIE_POSTER_UTL;
 const Search = () => {
     const [searchResult, setSearchResult] = React.useState([]);
     // console.log(useLocation());
@@ -36,8 +36,8 @@ const Search = () => {
         {searchTerm.trim().length > 0 && searchResult.length > 0
             ? <section className={styles.container}>
                 <div className={styles.searchResult}>
-                    {searchResult.map((item, i) => (
-                        item.poster_path && <img key={item.id} src={`${imgUrl}${item?.poster_path}`} alt="img"/>
+                    {searchResult.map((item) => (
+                        item.poster_path && <img key={item.id} src={`${IMAGE_UTL}${item?.poster_path}`} alt="img"/>
                     ))}
                 </div>
             </section>

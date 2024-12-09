@@ -1,8 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import ReactDOM from "react-dom";
 import styles from "./Modal.module.css";
-
-const imgUrl = process.env.REACT_APP_GET_MOVIE_POSTER_UTL;
+import {IMAGE_UTL} from "../../config/config";
 
 const MovieModal = (props) => {
     const {items, isOpen, onClose} = props;
@@ -30,7 +29,7 @@ const MovieModal = (props) => {
     return ReactDOM.createPortal(
         <dialog ref={dialogRef} className={styles.modal} onClose={handleClose} onClick={handleBackgroundClick}>
             <div className={styles.content}>
-                <img src={`${imgUrl}${items?.backdrop_path}`} alt="Detail_img"/>
+                <img src={`${IMAGE_UTL}${items?.backdrop_path}`} alt="Detail_img"/>
                 <p>{items?.release_date}</p>
                 <h1>{items?.title}</h1>
                 <p>평점 : {items?.vote_average.toFixed(2)}</p>

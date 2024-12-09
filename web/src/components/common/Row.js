@@ -1,8 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import instance from "../../api/axios";
 import styles from "./Row.module.css";
-
-const imgUrl = process.env.REACT_APP_GET_MOVIE_POSTER_UTL;
+import {IMAGE_UTL} from "../../config/config";
 
 const Row = (props) => {
     const {title, url, isLarge, id} = props;
@@ -44,7 +43,7 @@ const Row = (props) => {
                             ref={containerRef}
                     >
                     {posts.map((item, i) => (
-                        <img className={isLarge ? styles.largeItem : styles.smallItem} src={`${imgUrl}${item}`} alt={item.name}
+                        <img className={isLarge ? styles.largeItem : styles.smallItem} src={`${IMAGE_UTL}${item}`} alt={item.name}
                              key={`${id}-img-${i}`}
                              onClick={() => props.isOpen(true, items[i])} />
                     ))}

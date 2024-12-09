@@ -5,10 +5,9 @@ import VideoFrame from "./banner/VideoFrame";
 import Banner from "./banner/Banner";
 import Row from "../common/Row";
 import MovieModal from "../common/MovieModal";
+import {IMAGE_UTL} from "../../config/config";
 
 const tag = '[Fetch]';
-const imgUrl = 'https://image.tmdb.org/t/p/original/';
-
 
 const Main = () => {
     const [movie, setMovie] = React.useState([]);
@@ -34,7 +33,7 @@ const Main = () => {
         });
         // console.log(movieDetail);
         setMovie(movieDetail);
-        // console.log(imgUrl + movie?.backdrop_path);
+        // console.log(IMAGE_UTL + movie?.backdrop_path);
     }
     const onClickVideo = (boolean) => {
         if (!boolean) {
@@ -58,7 +57,7 @@ const Main = () => {
                 (movie?.videos.results.length > 0)
                     ?  <VideoFrame movie={movie} />
                     : onClickVideo(false)
-            ) : <Banner movie={movie} imgUrl={imgUrl} onClickVideo={onClickVideo} />
+            ) : <Banner movie={movie} onClickVideo={onClickVideo} />
             }
             <Row
                 title={"Action Movies"}

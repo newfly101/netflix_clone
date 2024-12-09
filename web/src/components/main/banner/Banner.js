@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from "../Main.module.css";
+import {IMAGE_UTL} from "../../../config/config";
 
-const Banner = ({movie, onClickVideo, imgUrl}) => {
+const Banner = ({movie, onClickVideo}) => {
     const truncate = (str, n) => {
         return str?.length > n ? str.slice(0, n - 1) +"..." : str;
     }
     return (
         <>
             <div className={movie ? styles.container : styles.bannerContainer}
-                 style={{backgroundImage: movie ? `url(${imgUrl}${movie?.backdrop_path})` : "none"}}>
+                 style={{backgroundImage: movie ? `url(${IMAGE_UTL}${movie?.backdrop_path})` : "none"}}>
                 <div className={styles.banner}>
                     <h1 className={`${styles.bannerTitle} ${styles.textDeco}`}>{movie?.title || movie?.name || movie?.original_title}</h1>
                     <div className={styles.bannerButtons}>
