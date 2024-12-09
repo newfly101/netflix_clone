@@ -29,7 +29,10 @@ const MovieModal = (props) => {
     return ReactDOM.createPortal(
         <dialog ref={dialogRef} className={styles.modal} onClose={handleClose} onClick={handleBackgroundClick}>
             <div className={styles.content}>
-                <img src={`${IMAGE_UTL}${items?.backdrop_path}`} alt="Detail_img"/>
+                {items?.backdrop_path
+                    ? <img src={`${IMAGE_UTL}${items?.backdrop_path}`} alt="Detail_img"/>
+                    : <img src={`${IMAGE_UTL}${items?.poster_path}`} alt="Detail_img"/>
+                }
                 <p>{items?.release_date}</p>
                 <h1>{items?.title}</h1>
                 <p>평점 : {items?.vote_average.toFixed(2)}</p>
