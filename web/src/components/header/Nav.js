@@ -15,7 +15,7 @@ const Nav = () => {
     return (
         <div className={styles.container}>
             <Link to="/" target="_self">
-                <img className={styles.netflixLogo} src="/Netflix_Logo.png" alt="Netflix logo"/>
+                <img className={styles.netflixLogo} src={`${process.env.PUBLIC_URL}/Netflix_Logo.png`} alt="Netflix logo"/>
             </Link>
             <div className={styles.buttonContainer}>
                 <input type="search"
@@ -23,13 +23,12 @@ const Nav = () => {
                        onChange={(e) => handleSearch(e.target.value)}
                        />
                 <div className={styles.translateLang}>
-                    <img src="/assets/lang.svg" alt="lang"/>
+                    <img src={`${process.env.PUBLIC_URL}/assets/lang.svg`} alt="lang"/>
                     <span>한국어</span>
                     <em>▼</em>
                 </div>
                 <button className={styles.userLogin}>로그인</button>
             </div>
-
         </div>
     );
 };

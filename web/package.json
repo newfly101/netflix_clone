@@ -33,6 +33,7 @@
       "last 1 edge version"
     ]
   },
+  "homepage": "https://newfly101.github.io/netflix_clone",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
