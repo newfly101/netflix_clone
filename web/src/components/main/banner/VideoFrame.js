@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "../Main.module.css";
 import YoutubePlayer from "../../common/YoutubePlayer";
 
-const tag = '[VideoFrame]';
+// const tag = '[VideoFrame]';
 const VideoFrame = ({movie}) => {
     // console.log(tag, movie);
     const maxWidth = getComputedStyle(document.documentElement).getPropertyValue('--max-width').trim();

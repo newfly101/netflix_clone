@@ -10,7 +10,7 @@ const Nav = () => {
         // console.log(value);
         setSearchValue(value);
         navigate(`/search?q=${value}`);
-    }, [searchValue]);
+    }, [searchValue, navigate]);
 
     return (
         <div className={styles.container}>

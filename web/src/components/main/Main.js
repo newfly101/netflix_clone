@@ -5,9 +5,8 @@ import VideoFrame from "./banner/VideoFrame";
 import Banner from "./banner/Banner";
 import Row from "../common/Row";
 import MovieModal from "../common/MovieModal";
-import {IMAGE_UTL} from "../../config/config";
 
-const tag = '[Fetch]';
+// const tag = '[Fetch]';
 
 const Main = () => {
     const [movie, setMovie] = React.useState([]);

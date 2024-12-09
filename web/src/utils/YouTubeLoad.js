@@ -1,5 +1,3 @@
-import React from 'react';
-
 const YouTubeLoad = () => {
     if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
         const script = document.createElement('script');

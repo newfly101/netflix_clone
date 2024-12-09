@@ -17,7 +17,7 @@ const Search = () => {
         return new URLSearchParams(useLocation().search);
     }
     let query = useQuery();
-    const searchTerm = query.get("q");
+    // const searchTerm = query.get("q");
     const debouncedSearchTerm = useDebounce(query.get("q"), 500);
     // console.log(`searchTerm: ${searchTerm}`);
 
