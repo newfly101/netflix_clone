@@ -3,6 +3,7 @@
 
 }
 .container {
+    /*display: flex;*/
     max-width: var(--max-width);
     position: fixed;
     top: 0;

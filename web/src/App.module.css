@@ -4,6 +4,7 @@
     --max-width: 1920px;
 }
 .app {
+    /*display: flex;*/
     display: flex;
     justify-content: center;
     align-items: center;
