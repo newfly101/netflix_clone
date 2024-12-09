@@ -7,7 +7,7 @@ const Nav = () => {
     const navigate = useNavigate();
 
     const handleSearch = useCallback((value) => {
-        console.log(value);
+        // console.log(value);
         setSearchValue(value);
         navigate(`/search?q=${value}`);
     }, [searchValue]);
