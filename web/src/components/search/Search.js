@@ -5,9 +5,12 @@ import instance from "../../api/axios";
 import requests from "../../api/request";
 import {IMAGE_UTL} from "../../config/config";
 import {useDebounce} from "../../hooks/useDebounce";
+import MovieModal from "../common/MovieModal";
 
 const Search = () => {
     const [searchResult, setSearchResult] = React.useState([]);
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const [isSelectedMovie, setSelectedMovie] = React.useState(false);
     // console.log(useLocation());
     const navigate = useNavigate();
     const useQuery = () => {
@@ -35,14 +38,22 @@ const Search = () => {
             console.error(e);
         }
     }
+    const handleModalOpen = (open, item) => {
+        console.log(open, item);
+        setIsModalOpen(open);
+        setSelectedMovie(item);
+    }
 
     return (
         <>
+        {isModalOpen && (
+            <MovieModal items={isSelectedMovie} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        )}
         {debouncedSearchTerm.trim().length > 0 && searchResult.length > 0
             ? <section className={styles.container}>
                 <div className={styles.searchResult}>
                     {searchResult.map((item) => (
-                        item.poster_path && <img key={item.id} src={`${IMAGE_UTL}${item?.poster_path}`} alt="img"/>
+                        item.poster_path && <img key={item.id} src={`${IMAGE_UTL}${item?.poster_path}`} alt="img" onClick={() => handleModalOpen(true, item)}/>
                     ))}
                 </div>
             </section>
