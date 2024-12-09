@@ -1,13 +1,13 @@
 import {actionTypes} from "./actionTypes";
 
-export const setMovieList = (movieList) => ({
-    type: actionTypes.GET_MOVIE_LIST,
-    payload: movieList,
+export const setBannerMovie = (bannerMovie) => ({
+    type: actionTypes.GET_BANNER_MOVIE,
+    payload: bannerMovie,
 });
 
-export const setMovie = (movie) => ({
-    type: actionTypes.GET_MOVIE,
-    payload: movie,
+export const setSelectedMovie = (selectedMovie) => ({
+    type: actionTypes.GET_SELECTED_MOVIE,
+    payload: selectedMovie,
 });
 
 export const setIsClicked = (isClicked) => ({
