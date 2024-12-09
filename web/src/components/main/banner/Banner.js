@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from "../Main.module.css";
 import {IMAGE_UTL} from "../../../config/config";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {setIsClicked} from "../../../redux/mainActions";
 
-const Banner = ({onClickVideo}) => {
+const Banner = () => {
     const movie = useSelector((state) => state.main.bannerMovie);
+    const dispatch = useDispatch();
 
     const truncate = (str, n) => {
         return str?.length > n ? str.slice(0, n - 1) +"..." : str;
@@ -17,7 +19,7 @@ const Banner = ({onClickVideo}) => {
                     <h1 className={`${styles.bannerTitle} ${styles.textDeco}`}>{movie?.title || movie?.name || movie?.original_title}</h1>
                     <div className={styles.bannerButtons}>
                         <button className={`${styles.bannerButton} ${styles.play}`}
-                                onClick={() => onClickVideo(true)}
+                                onClick={() => dispatch(setIsClicked(true))}
                         >▶ Play</button>
                         <button className={`${styles.bannerButton} ${styles.info}`}>
                             <span></span>More Information

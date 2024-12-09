@@ -7,7 +7,6 @@ import MovieModal from "../common/MovieModal";
 import {useDispatch, useSelector} from "react-redux";
 import {
     getFetchBanner,
-    setIsClicked,
     setIsModalOpen,
     setSelectedMovie
 } from "../../redux/mainActions";
@@ -23,13 +22,6 @@ const Main = () => {
         dispatch(getFetchBanner());
     }, [dispatch]);
 
-    const onClickVideo = (boolean) => {
-        if (!boolean) {
-            console.log("영화 미리 보기가 없습니다.");
-        }
-        dispatch(setIsClicked(boolean));
-
-    }
     const handleModalOpen = (open, item) => {
         // console.log("Modal Open:", open, "Selected Movie:", item);
         dispatch(setIsModalOpen(open));
@@ -38,16 +30,13 @@ const Main = () => {
 
     return (
         <>
-            {isModalOpen && (
-                <MovieModal items={selectedMovie} isOpen={isModalOpen} onClose={() => dispatch(setIsModalOpen(false))} />
-            )}
-            {/* todo 구조 변경 : isClicked 되면 <Banner 안에 .banner랑 VideoFrame이랑 ? 로 걸어서 변경 하기*/}
-            { isClicked ? (
-                (bannerMovie?.videos.results.length > 0)
-                    ?  <VideoFrame movie={bannerMovie} />
-                    : onClickVideo(false)
-            ) : <Banner onClickVideo={onClickVideo} />
+            {isModalOpen &&
+                <MovieModal items={selectedMovie}
+                            isOpen={isModalOpen}
+                            onClose={() => dispatch(setIsModalOpen(false))}
+                />
             }
+            { isClicked && bannerMovie?.videos?.results.length > 0 ? <VideoFrame /> : <Banner /> }
             <Row
                 title={"Action Movies"}
                 id={"AM"}

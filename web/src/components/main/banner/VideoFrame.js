@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from "../Main.module.css";
 import YoutubePlayer from "../../common/YoutubePlayer";
+import {useSelector} from "react-redux";
 
-// const tag = '[VideoFrame]';
-const VideoFrame = ({movie}) => {
-    // console.log(tag, movie);
+const VideoFrame = () => {
+    const movie = useSelector((state)=>state.main.bannerMovie);
     const maxWidth = getComputedStyle(document.documentElement).getPropertyValue('--max-width').trim();
     return (
         <div className={styles.container}>
