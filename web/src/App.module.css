@@ -9,6 +9,7 @@
     align-items: center;
     align-content: center;
     flex-direction: column;
+    overflow-x: hidden
 }
 .container {
     width: 100%;
