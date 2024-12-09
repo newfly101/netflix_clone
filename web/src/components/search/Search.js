@@ -39,7 +39,7 @@ const Search = () => {
         }
     }
     const handleModalOpen = (open, item) => {
-        console.log(open, item);
+        // console.log(open, item);
         setIsModalOpen(open);
         setSelectedMovie(item);
     }
