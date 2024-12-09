@@ -19,6 +19,8 @@ const mainReducer = (state = initialState, action) => {
             return { ...state, isClicked: action.payload };
         case actionTypes.GET_MOVIE_MODAL_OPEN:
             return { ...state, isModalOpen: action.payload };
+        case actionTypes.SET_API_REQUEST:
+            return { ...state, bannerMovie: action.payload };
         default:
             return state;
     }
