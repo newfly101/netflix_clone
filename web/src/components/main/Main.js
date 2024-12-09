@@ -62,7 +62,7 @@ const Main = () => {
                 (bannerMovie?.videos.results.length > 0)
                     ?  <VideoFrame movie={bannerMovie} />
                     : onClickVideo(false)
-            ) : <Banner movie={bannerMovie} onClickVideo={onClickVideo} />
+            ) : <Banner onClickVideo={onClickVideo} />
             }
             <Row
                 title={"Action Movies"}

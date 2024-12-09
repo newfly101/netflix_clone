@@ -1,8 +1,11 @@
 import React from 'react';
 import styles from "../Main.module.css";
 import {IMAGE_UTL} from "../../../config/config";
+import {useSelector} from "react-redux";
 
-const Banner = ({movie, onClickVideo}) => {
+const Banner = ({onClickVideo}) => {
+    const movie = useSelector((state) => state.main.bannerMovie);
+
     const truncate = (str, n) => {
         return str?.length > n ? str.slice(0, n - 1) +"..." : str;
     }
