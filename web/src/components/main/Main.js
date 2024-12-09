@@ -6,9 +6,9 @@ import Banner from "./banner/Banner";
 import Row from "../common/Row";
 import MovieModal from "../common/MovieModal";
 import {useDispatch, useSelector} from "react-redux";
-import {setIsClicked} from "../../redux/mainActions";
+import {setIsClicked, setIsModalOpen, setMovie, setMovieList} from "../../redux/mainActions";
 
-// const tag = '[Fetch]';
+const tag = '[Fetch]';
 
 const Main = () => {
 
@@ -24,35 +24,35 @@ const Main = () => {
 
     const fetchData = async () => {
         const request = await instance.get(requests.fetchNowPlaying);
-        // console.log(`${tag} total result => `,request.data.results);
+        console.log(`${tag} total result => `,request.data.results);
         const randNum = Math.floor(Math.random() * request.data.results.length);
-        // console.log(`${tag} get random 1 => `,request.data.results[randNum]);
+        console.log(`${tag} get random 1 => `,request.data.results[randNum]);
         const movieId = request.data.results[randNum].id;
-        // console.log(`movieId: ${movieId}`);
+        console.log(`movieId: ${movieId}`);
 
         const {data: movieDetail} = await instance.get(requests.fetchMovieDetail(movieId), {
             params: {append_to_response: "videos"}
         });
-        // console.log(movieDetail);
-        setMovie(movieDetail);
+
+        dispatch(setMovieList(movieDetail));
         // console.log(IMAGE_UTL + movie?.backdrop_path);
     }
     const onClickVideo = (boolean) => {
         if (!boolean) {
             console.log("영화 미리 보기가 없습니다.");
         }
-        setIsClicked(boolean);
+        dispatch(setIsClicked(boolean));
     }
     const handleModalOpen = (open, item) => {
         console.log("Modal Open:", open, "Selected Movie:", item);
-        setModalOpen(open);
-        setSelectedMovie(item);
+        dispatch(setIsModalOpen(open));
+        dispatch(setMovie(item));
     }
 
     return (
         <>
             {isModalOpen && (
-                <MovieModal items={selectedMovie} isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+                <MovieModal items={selectedMovie} isOpen={isModalOpen} onClose={() => dispatch(setIsModalOpen(false))} />
             )}
             {/* todo 구조 변경 : isClicked 되면 <Banner 안에 .banner랑 VideoFrame이랑 ? 로 걸어서 변경 하기*/}
             { isClicked ? (
