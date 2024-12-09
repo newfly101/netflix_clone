@@ -3,7 +3,7 @@ import mainReducer from "./main-reducer";
 
 // store에 reducer 통합 (reducer가 추가되면 여기에 추가)
 const rootReducer = combineReducers({
-    movie: mainReducer,
+    main: mainReducer,
 })
 
 // store 생성

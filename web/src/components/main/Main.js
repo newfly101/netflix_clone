@@ -5,14 +5,17 @@ import VideoFrame from "./banner/VideoFrame";
 import Banner from "./banner/Banner";
 import Row from "../common/Row";
 import MovieModal from "../common/MovieModal";
+import {useDispatch, useSelector} from "react-redux";
+import {setIsClicked} from "../../redux/mainActions";
 
 // const tag = '[Fetch]';
 
 const Main = () => {
-    const [movie, setMovie] = React.useState([]);
-    const [isClicked, setIsClicked] = React.useState(false);
-    const [isModalOpen, setModalOpen] = React.useState(false);
-    const [selectedMovie, setSelectedMovie] = React.useState([]);
+
+    const dispatch = useDispatch();
+
+    const { movie, isClicked, isModalOpen, selectedMovie }
+        = useSelector((state) => state.main);
 
     // 화면 렌더링 될 때 정보 가져오기
     useEffect(() => {
