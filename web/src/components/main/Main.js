@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import requests from "../../api/request";
-import instance from "../../api/axios";
 import VideoFrame from "./banner/VideoFrame";
 import Banner from "./banner/Banner";
 import Row from "../common/Row";
@@ -12,8 +11,6 @@ import {
     setIsModalOpen,
     setSelectedMovie
 } from "../../redux/mainActions";
-
-const tag = '[Fetch]';
 
 const Main = () => {
     const dispatch = useDispatch();
